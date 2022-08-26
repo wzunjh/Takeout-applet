@@ -11,6 +11,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * Redis配置类
  */
 //修改key名称的序列化方式
+
+
+//可以直接用 StringRedisTemplate
+
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
 
