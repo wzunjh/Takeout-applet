@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/user")
@@ -26,6 +28,11 @@ public class UserController {
 
         @Value("${spring.mail.username}")
         private String from;   // 邮件发送人
+
+        //redis
+        @Autowired
+        private RedisTemplate redisTemplate;
+
 
         @Autowired
         private JavaMailSender mailSender;
@@ -44,8 +51,12 @@ public class UserController {
                 String code = ValidateCodeUtils.generateValidateCode(6).toString();
                 String context = "欢迎使用瑞吉外卖，您的登录验证码为: " + code + ",五分钟内有效，请妥善保管!";
 
-                //保存验证码
-                session.setAttribute(phone,code);
+//                //保存验证码
+//                session.setAttribute(phone,code);
+
+                //将验证码存入redis当中
+                redisTemplate.opsForValue().set(phone,code,5, TimeUnit.MINUTES);
+
 
                 // 真正地发送邮箱验证码
                 userService.sendMsg(phone, subject, context);
@@ -63,8 +74,12 @@ public class UserController {
         String phone = (String) map.get("phone");
         // 获取验证码
         String code = (String) map.get("code");
-        // session中获取验证码
-        Object codeSession = session.getAttribute(phone);
+//        // session中获取验证码
+//        Object codeSession = session.getAttribute(phone);
+
+        //从redis中缓存
+        Object codeSession =redisTemplate.opsForValue().get(phone);
+
         // 比对验证码
         if(codeSession!=null&&codeSession.equals(code)){
             // 成功，则登录
@@ -80,6 +95,10 @@ public class UserController {
                 userService.save(user);
             }
             session.setAttribute("user",user.getId());
+
+            //登录成功就删除
+            redisTemplate.delete(phone);
+
             return R.success(user);
         }
         return R.error("登录失败,验证码有误");
