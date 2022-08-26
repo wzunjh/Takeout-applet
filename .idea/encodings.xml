@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/njh/common/JacksonObjectMapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/njh/common/R.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/njh/config/RedisConfig.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/njh/controller/AddressBookController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/njh/controller/OrderDetailController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/njh/dao/AddressBookMapper.java" charset="UTF-8" />
