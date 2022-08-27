@@ -14,11 +14,13 @@ import com.njh.service.DishFlavorService;
 import com.njh.service.DishService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,6 +37,9 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
 
     @Autowired
     private CategoryMapper categoryMapper;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
 
@@ -109,7 +114,19 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
     @Override
     public R<List<DishDto>> findDishByCategoryId(Dish dish) {
 
+        //redis缓存
+        //构造key
+        String key = "dish_"+dish.getCategoryId()+"_"+dish.getStatus();
+
         List<DishDto> dishDtoList =null;
+
+        //从redis中获取缓存数据
+        dishDtoList = (List<DishDto>) redisTemplate.opsForValue().get(key);
+
+        if (dishDtoList != null){
+            return R.success(dishDtoList);
+        }
+
         LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(dish.getCategoryId() != null,Dish::getCategoryId,dish.getCategoryId());
         queryWrapper.orderByDesc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
@@ -135,6 +152,9 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
             dishDtoList.add(dishDto);
 
         }
+
+        //数据存入缓存
+        redisTemplate.opsForValue().set(key,dishDtoList,60, TimeUnit.MINUTES);
 
 
         return R.success(dishDtoList);
