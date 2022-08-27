@@ -13,9 +13,11 @@ import com.njh.service.DishService;
 import com.njh.service.SetmealDishService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -35,12 +37,22 @@ public class DishController {
     @Autowired
     private SetmealDishService setmealDishService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+
+
     //新增菜品
 
     @PostMapping
     public R<String> save(@RequestBody DishDto dishDto){
 
         dishService.saveWithFlavor(dishDto);
+
+        //清理修改的菜品缓存
+        String key = "dish_"+dishDto.getCategoryId()+"_1";
+
+        redisTemplate.delete(key);
 
         return R.success("新增菜品成功");
     }
@@ -109,6 +121,11 @@ public class DishController {
     public R<String> update(@RequestBody DishDto dishDto){
 
         dishService.updateWithFlavor(dishDto);
+
+        //清理修改的菜品缓存
+        String key = "dish_"+dishDto.getCategoryId()+"_1";
+
+        redisTemplate.delete(key);
 
         return R.success("修改菜品成功");
     }
