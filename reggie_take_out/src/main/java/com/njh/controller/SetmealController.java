@@ -5,10 +5,13 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.njh.common.R;
 import com.njh.domain.Category;
+import com.njh.domain.Dish;
 import com.njh.domain.Setmeal;
 import com.njh.domain.SetmealDish;
+import com.njh.dto.DishDto;
 import com.njh.dto.SetmealDto;
 import com.njh.service.CategoryService;
+import com.njh.service.DishService;
 import com.njh.service.SetmealDishService;
 import com.njh.service.SetmealService;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +39,8 @@ public class SetmealController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private DishService dishService;
 
 
     @PostMapping
@@ -141,5 +146,29 @@ public class SetmealController {
         return setmealService.findSetmealByCategoryId(setmeal);
     }
 
+
+
+    //获取套餐数据
+    @GetMapping("/dish/{id}")
+    public R<List<DishDto>> dish(@PathVariable("id") Long SetmealId){
+        LambdaQueryWrapper<SetmealDish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SetmealDish::getSetmealId,SetmealId);
+        //获取套餐里面的所有菜品  这个就是SetmealDish表里面的数据
+        List<SetmealDish> list = setmealDishService.list(queryWrapper);
+
+        List<DishDto> dishDtos = list.stream().map((setmealDish) -> {
+            DishDto dishDto = new DishDto();
+            //其实这个BeanUtils的拷贝是浅拷贝，这里要注意一下
+            BeanUtils.copyProperties(setmealDish, dishDto);
+            //这里是为了把套餐中的菜品的基本信息填充到dto中，比如菜品描述，菜品图片等菜品的基本信息
+            Long dishId = setmealDish.getDishId();
+            Dish dish = dishService.getById(dishId);
+            BeanUtils.copyProperties(dish, dishDto);
+
+            return dishDto;
+        }).collect(Collectors.toList());
+
+        return R.success(dishDtos);
+    }
 
 }
