@@ -25,7 +25,8 @@
         <el-input placeholder=" 请输入邮箱,请勿重复获取验证码" v-model="form.phone"  maxlength='20'/></el-input>
         <div class="divSplit"></div>
         <el-input placeholder=" 请输入最新验证码" v-model="form.code"  maxlength='20'/></el-input>
-        <span @click='getCode'>获取验证码</span>
+        <span v-show="sendAuthCode" class="auth_text auth_text_blue" @click='getCode'>获取验证码</span>
+        <span v-show="!sendAuthCode" class="auth_text"> <span class="auth_text_blue">{{auth_time}} </span>倒计时后重试</span>
     </div>
     <div class="divMsg" v-if="msgFlag">邮箱输入不正确，请重新输入</div>
     <el-button type="primary" :class="{btnSubmit:1===1,btnNoPhone:!form.phone,btnPhone:form.phone}" @click="btnLogin">登录</el-button>
@@ -53,7 +54,9 @@
                     code:''
                 },
                 msgFlag:false,
-                loading:false
+                loading:false,
+                sendAuthCode:true,
+                auth_time:0
             }
         },
         computed:{},
@@ -61,6 +64,15 @@
         mounted(){},
         methods:{
             getCode(){
+                this.sendAuthCode = false;
+                this.auth_time = 30;
+                let auth_times = setInterval(() => {
+                    this.auth_time--;
+                    if (this.auth_time <= 0) {
+                        this.sendAuthCode = true;
+                        clearInterval(auth_times);
+                    }
+                }, 1000);
                 this.form.code = ''
                 // const regex = /^(13[0-9]{9})|(15[0-9]{9})|(17[0-9]{9})|(18[0-9]{9})|(19[0-9]{9})$/;  // 手机号的正则表达式 验证
                 // const regex = /^[0-9a-zA-Z]+([\.\-_]*[0-9a-zA-Z]+)*@([0-9a-zA-Z]+[\-_]*[0-9a-zA-Z]+\.)+[0-9a-zA-Z]{2,6}$/; //  邮箱的正则表达式验证
