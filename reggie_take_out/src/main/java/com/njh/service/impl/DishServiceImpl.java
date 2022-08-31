@@ -116,7 +116,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
 
         //redis缓存
         //构造key
-        String key = "dish_"+dish.getCategoryId()+"_"+dish.getStatus();
+        String key = "dish_"+dish.getCategoryId()+"_"+1;      //只展示在售的菜品
 
         List<DishDto> dishDtoList =null;
 
@@ -129,6 +129,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
 
         LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(dish.getCategoryId() != null,Dish::getCategoryId,dish.getCategoryId());
+        queryWrapper.eq(Dish::getStatus,1);
         queryWrapper.orderByDesc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
         List<Dish> dishes = dishMapper.selectList(queryWrapper);
         dishDtoList = new ArrayList<>();

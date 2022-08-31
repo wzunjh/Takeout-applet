@@ -120,12 +120,12 @@ public class DishController {
     @PutMapping
     public R<String> update(@RequestBody DishDto dishDto){
 
-        dishService.updateWithFlavor(dishDto);
-
         //清理修改的菜品缓存
-        String key = "dish_"+dishDto.getCategoryId()+"_1";
+        String key = "dish_"+dishDto.getCategoryId()+"_"+1;
 
         redisTemplate.delete(key);
+
+        dishService.updateWithFlavor(dishDto);
 
         return R.success("修改菜品成功");
     }
@@ -147,6 +147,12 @@ public class DishController {
         LambdaQueryWrapper<SetmealDish> queryWrapper1 = new LambdaQueryWrapper<>();
         queryWrapper1.in(ids != null,SetmealDish::getDishId,ids);
 
+        // 删除缓存
+        dishService.listByIds(ids).stream().forEach(item -> {
+            String key = "dish_"+item.getCategoryId()+"_"+1;
+            redisTemplate.delete(key);
+        });
+
 
         List<Dish> list = dishService.list(queryWrapper);
         List<SetmealDish> list1 = setmealDishService.list(queryWrapper1);
@@ -158,11 +164,6 @@ public class DishController {
                 dish.setStatus(status);
                 dishService.updateById(dish);
             }
-            // 删除缓存
-            dishService.listByIds(ids).stream().forEach(item -> {
-                String key = "dish_"+item.getCategoryId()+"_1";
-                redisTemplate.delete(key);
-            });
             return R.success("菜品的售卖状态已更改！");
         }
 
@@ -189,7 +190,7 @@ public class DishController {
         else if (list != null){
             // 删除缓存
             dishService.listByIds(ids).stream().forEach(item -> {
-                String key = "dish_"+item.getCategoryId()+"_1";
+                String key = "dish_"+item.getCategoryId()+"_"+1;
                 redisTemplate.delete(key);
             });
             for (Dish dish : list) {
