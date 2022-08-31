@@ -153,12 +153,16 @@ public class DishController {
         if (list1.size() != 0){
             return R.error("含有已绑定套餐菜品,售卖状态不可更改");
         }
-
         else if (list != null){
             for (Dish dish : list) {
                 dish.setStatus(status);
                 dishService.updateById(dish);
             }
+            // 删除缓存
+            dishService.listByIds(ids).stream().forEach(item -> {
+                String key = "dish_"+item.getCategoryId()+"_1";
+                redisTemplate.delete(key);
+            });
             return R.success("菜品的售卖状态已更改！");
         }
 
@@ -183,6 +187,11 @@ public class DishController {
             return R.error("含有已绑定套餐菜品,菜品不可删除");
         }
         else if (list != null){
+            // 删除缓存
+            dishService.listByIds(ids).stream().forEach(item -> {
+                String key = "dish_"+item.getCategoryId()+"_1";
+                redisTemplate.delete(key);
+            });
             for (Dish dish : list) {
                 dishService.removeById(dish);
             }
