@@ -1,10 +1,10 @@
 # reggie
 
 #### 介绍
-瑞吉外卖项目
+智能外卖项目
 
 #### 软件架构
-软件架构说明:基于springboot，mybatisplus，redis，mysql等搭建的外卖服务平台
+软件架构说明:基于springboot，mybatisplus，redis，mysql，sping-cache等技术搭建的外卖服务平台
 
 
 #### 安装教程
