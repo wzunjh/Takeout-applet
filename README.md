@@ -1,7 +1,7 @@
 # reggie
 
 #### 介绍
-智能外卖项目(部分开源代码)
+智能外卖项目(wzunjh.top)
 
 #### 软件架构
 软件架构说明:基于springboot，mybatisplus，redis，mysql，sping-cache等技术搭建的外卖服务平台
