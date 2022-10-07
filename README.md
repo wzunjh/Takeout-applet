@@ -18,5 +18,5 @@
 2.本地或者服务器启动时，提前开启redis服务
 3.CommonController修改文件上传和下载的路径
 
-#### 在线使用
+#### 在线测试使用
 网站: [wzunjh.top](http://wzunjh.top)
