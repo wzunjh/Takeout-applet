@@ -30,7 +30,7 @@ public class CommonController {
         String substring = originalFilename.substring(originalFilename.lastIndexOf("."));  //获取图片后缀
         String filename = UUID.randomUUID() + substring;
 
-        file.transferTo(new File("/www/wwwroot/photo/"+filename));  //服务器部署使用
+        file.transferTo(new File("D://photo/"+filename));  //服务器部署使用
 
         return R.success(filename);
 
@@ -38,7 +38,7 @@ public class CommonController {
 
     @GetMapping("/download")
     public void download(String name, HttpServletResponse response) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream("/www/wwwroot/photo/"+name);   //输入流   服务器部署使用
+        FileInputStream fileInputStream = new FileInputStream("D://photo/"+name);   //输入流   服务器部署使用
 
         ServletOutputStream outputStream = response.getOutputStream();    //输出流
 
