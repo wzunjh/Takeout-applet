@@ -17,3 +17,6 @@
 1.修改配置文件application.properties，数据库的连接等。
 2.本地或者服务器启动时，提前开启redis服务
 3.CommonController修改文件上传和下载的路径
+
+#### 在线使用
+网站: wzunjh.top
