@@ -47,10 +47,10 @@ public class UserController {
             //  获取邮箱账号
             String phone = user.getPhone();
 
-            String subject = "瑞吉外卖登录验证码";
+            String subject = "智能外卖登录验证码";
             if (StringUtils.isNotEmpty(phone)) {
                 String code = ValidateCodeUtils.generateValidateCode(6).toString();
-                String context = "欢迎使用瑞吉外卖，您的登录验证码为: " + code + ",五分钟内有效，请妥善保管!";
+                String context = "欢迎使用智能外卖，您的登录验证码为: " + code + ",五分钟内有效，请妥善保管!";
 
 //                //保存验证码
 //                session.setAttribute(phone,code);
