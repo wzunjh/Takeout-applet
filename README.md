@@ -5,7 +5,7 @@
 
 #### 软件架构
 说明:后端利用mysql，redis，mybatisplus，sping-cache，springMVC，springboot等技术和框架搭建的外卖服务平台
-
+![输入图片说明](reggie_take_out/src/main/resources/static/pexels-guilherme-rossi-1755683.jpg)
 #### 参与贡献
 
 1.  前端：传智播客
