@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
-    <title>客户登录</title>
+    <title>智能外卖客户登录</title>
     <link rel="icon" href="../images/favicon.ico">
     <!--不同屏幕尺寸根字体设置-->
     <script src="../js/base.js"></script>
@@ -22,7 +22,7 @@
 <div id="login" v-loading="loading">
     <div class="divHead">登录</div>
     <div class="divContainer">
-        <el-input placeholder=" 请输入邮箱,请勿重复获取验证码" v-model="form.phone"  maxlength='20'/></el-input>
+        <el-input placeholder=" 请输入您的邮箱,请勿反复获取验证码" v-model="form.phone"  maxlength='20'/></el-input>
         <div class="divSplit"></div>
         <el-input placeholder=" 请输入最新验证码" v-model="form.code"  maxlength='20'/></el-input>
         <span v-show="sendAuthCode" class="auth_text auth_text_blue" @click='getCode'>获取验证码</span>
@@ -43,7 +43,6 @@
 <script src="../api/login.js"></script>
 </body>
 <script>
-    alert("欢迎登录菩提阁餐厅————聂家辉个人开发项目");
 
     new Vue({
         el:"#login",
