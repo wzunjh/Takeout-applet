@@ -1,13 +1,20 @@
 #login .divHead {
   opacity: 1;
-  height: 88rem;
+  height: 60rem;
   width: 100%;
-  font-size: 25rem;
+  background-color: #ffffff;
+  font-size: 15rem;
   font-family: PingFangSC, PingFangSC-Regular, serif;
   font-weight: 1000;
   text-align: center;
-  color: #333333;
-  line-height: 500rem;
+  color: #000000;
+  line-height: 70rem;
+}
+
+#login .divImg {
+  width: 400px;
+  height: 280px;
+  position:relative;
 }
 
 #login .divContainer {
@@ -16,7 +23,7 @@
   opacity: 1;
   background: #ffffff;
   border-radius: 6rem;
-  margin: 200rem auto 0;
+  margin: 15rem auto 0;
   position: relative;
 }
 

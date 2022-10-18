@@ -20,7 +20,9 @@
 </head>
 <body>
 <div id="login" v-loading="loading">
-    <div class="divHead">用户登录</div>
+    <div class="divHead">智能云小程序</div>
+    <div class="divImg"><img src="./../images/ball.png" style="width: 400px;height: 250px"/></div>
+    <div style="font-size:18px;font-weight:bold;">&nbsp&nbsp&nbsp&nbsp欢迎登录</div>
     <div class="divContainer">
         <el-input placeholder=" 请输入您的邮箱" v-model="form.phone"  maxlength='20'/></el-input>
         <div class="divSplit"></div>
@@ -29,7 +31,8 @@
         <span v-show="!sendAuthCode" class="auth_text"> <span class="auth_text_blue">{{auth_time}} </span>倒计时后重试</span>
     </div>
     <div class="divMsg" v-if="msgFlag">邮箱输入不正确，请重新输入</div>
-    <el-button type="primary" :class="{btnSubmit:1===1,btnNoPhone:!form.phone,btnPhone:form.phone}" @click="btnLogin">登录</el-button>
+    <div style="font-size:10px;text-align: center;padding-top: 15px;font-weight:bold;color: rgba(176,176,180,0.94)">点击登录表明您已经阅读并遵守<a href="http://wzunjh.top/about/" style="color: #3a8ee6">《用户须知》</a></div>
+    <el-button type="primary" :class="{btnSubmit:1===1,btnNoPhone:!form.phone,btnPhone:form.phone}" @click="btnLogin">同意并登录</el-button>
 </div>
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <script src="../../backend/plugins/vue/vue.js"></script>
