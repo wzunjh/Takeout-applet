@@ -27,6 +27,7 @@ public class CommonController {
     public R<String> upload(MultipartFile file) throws IOException {
 
         String originalFilename = file.getOriginalFilename();
+        assert originalFilename != null;
         String substring = originalFilename.substring(originalFilename.lastIndexOf("."));  //获取图片后缀
         String filename = UUID.randomUUID() + substring;
 
