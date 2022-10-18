@@ -47,10 +47,10 @@ public class UserController {
             //  获取邮箱账号
             String phone = user.getPhone();
 
-            String subject = "智能外卖登录验证码";
+            String subject = "智慧云外卖小程序";
             if (StringUtils.isNotEmpty(phone)) {
                 String code = ValidateCodeUtils.generateValidateCode(6).toString();
-                String context = "欢迎使用智能外卖，您的登录验证码为: " + code + ",五分钟内有效，请妥善保管!";
+                String context = "【智慧云外卖小程序】 您的登录验证码为: " + code + "(五分钟内有效)，请勿泄露给他人。如非本人操作，请忽略此信息。  【wzunjh.top】";
 
 //                //保存验证码
 //                session.setAttribute(phone,code);
@@ -64,7 +64,7 @@ public class UserController {
 
                 return R.success("验证码发送成功，请及时查看!");
             }
-            return R.error("验证码发送失败，请重新输入!");
+            return R.error("验证码发送失败，请重新获取!");
         }
 
     @PostMapping("/login")
