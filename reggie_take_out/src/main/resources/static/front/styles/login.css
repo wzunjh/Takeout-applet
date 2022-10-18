@@ -16,7 +16,7 @@
   opacity: 1;
   background: #ffffff;
   border-radius: 6rem;
-  margin: 220rem auto 0;
+  margin: 200rem auto 0;
   position: relative;
 }
 
@@ -44,7 +44,7 @@
   font-weight: 400;
   text-align: left;
   color: #ffc200;
-  letter-spacing: 0px;
+  letter-spacing: 0;
 }
 
 #login .divMsg {
