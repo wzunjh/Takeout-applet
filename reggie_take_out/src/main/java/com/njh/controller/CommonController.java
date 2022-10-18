@@ -13,7 +13,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -46,7 +45,7 @@ public class CommonController {
         response.setContentType("image/jpeg");
 
 
-        int len =0;
+        int len;
         byte[] bytes = new byte[1024];
         while ((len = fileInputStream.read(bytes)) != -1){
             outputStream.write(bytes,0,len);
