@@ -38,7 +38,7 @@ public class CommonController {
 
     @GetMapping("/download")
     public void download(String name, HttpServletResponse response) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream("D://photo/"+name);   //输入流   服务器部署使用
+        FileInputStream fileInputStream = new FileInputStream("D://photo/"+name);   //输入流  /www/wwwroot/photo/ 服务器部署使用
 
         ServletOutputStream outputStream = response.getOutputStream();    //输出流
 
