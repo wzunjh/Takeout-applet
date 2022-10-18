@@ -1,14 +1,13 @@
 #login .divHead {
   opacity: 1;
-  background: #333333;
   height: 88rem;
   width: 100%;
-  font-size: 18rem;
-  font-family: PingFangSC, PingFangSC-Regular;
-  font-weight: 500;
+  font-size: 25rem;
+  font-family: PingFangSC, PingFangSC-Regular, serif;
+  font-weight: 1000;
   text-align: center;
-  color: #ffffff;
-  line-height: 88rem;
+  color: #333333;
+  line-height: 500rem;
 }
 
 #login .divContainer {
@@ -17,8 +16,7 @@
   opacity: 1;
   background: #ffffff;
   border-radius: 6rem;
-  margin: 0 auto;
-  margin-top: 10rem;
+  margin: 220rem auto 0;
   position: relative;
 }
 
@@ -86,8 +84,8 @@
 }
 
 #login .btnPhone {
-  background: #ffc200;
-  color: #333333;
+  background: #36c958;
+  color: #ffffff;
 }
 
 #login .btnPhone:active {
