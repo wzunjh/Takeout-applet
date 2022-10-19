@@ -2,12 +2,12 @@
   opacity: 1;
   height: 60rem;
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgba(222, 222, 222, 0.52);
   font-size: 15rem;
   font-family: PingFangSC, PingFangSC-Regular, serif;
   font-weight: 1000;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
   line-height: 70rem;
 }
 
@@ -55,12 +55,12 @@
 }
 
 #login .divMsg {
-  width: 168px;
-  height: 17px;
+  width: 185px;
+  height: 10px;
   opacity: 1;
-  font-size: 12px;
+  font-size: 15px;
   font-family: PingFangSC, PingFangSC-Regular, serif;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
   color: #e94e3c;
   line-height: 17px;

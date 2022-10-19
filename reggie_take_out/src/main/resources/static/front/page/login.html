@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
-    <title>智能外卖客户登录</title>
+    <title>智能云外卖小程序</title>
     <link rel="icon" href="../images/favicon.ico">
     <!--不同屏幕尺寸根字体设置-->
     <script src="../js/base.js"></script>
@@ -20,19 +20,19 @@
 </head>
 <body>
 <div id="login" v-loading="loading">
-    <div class="divHead">智能云小程序</div>
     <div class="divImg"><img src="./../images/ball.png" style="width: 400px;height: 250px"/></div>
-    <div style="font-size:18px;font-weight:bold;">&nbsp&nbsp&nbsp&nbsp欢迎登录</div>
+    <div style="font-size:22px;font-weight:bold;">&nbsp&nbsp&nbsp&nbsp欢迎登录</div>
+    <div style="font-size:12px;padding-top: 14px;font-weight:bold;color: rgba(176,176,180,0.94)">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp未注册的邮箱验证通过后将自动注册</div>
     <div class="divContainer">
         <el-input placeholder=" 请输入您的邮箱" v-model="form.phone"  maxlength='20'/></el-input>
         <div class="divSplit"></div>
-        <el-input placeholder=" 请输入最新验证码" v-model="form.code"  maxlength='20'/></el-input>
+        <el-input placeholder=" 请输入验证码" v-model="form.code"  maxlength='20'/></el-input>
         <span v-show="sendAuthCode" class="auth_text auth_text_blue" @click='getCode'>获取验证码</span>
-        <span v-show="!sendAuthCode" class="auth_text"> <span class="auth_text_blue">{{auth_time}} </span>倒计时后重试</span>
+        <span v-show="!sendAuthCode" class="auth_text">{{auth_time}}秒后重试</span>
     </div>
-    <div class="divMsg" v-if="msgFlag">邮箱输入不正确，请重新输入</div>
-    <div style="font-size:10px;text-align: center;padding-top: 15px;font-weight:bold;color: rgba(176,176,180,0.94)">点击登录表明您已经阅读并遵守<a href="http://wzunjh.top/about/" style="color: #3a8ee6">《用户须知》</a></div>
+    <div class="divMsg" v-if="msgFlag">邮箱格式不正确,请重新输入</div>
     <el-button type="primary" :class="{btnSubmit:1===1,btnNoPhone:!form.phone,btnPhone:form.phone}" @click="btnLogin">同意并登录</el-button>
+    <div style="font-size:15px;text-align: center;padding-top: 40px;font-weight:bold;color: rgba(176,176,180,0.94)">登录表明您已经阅读并遵守<a href="http://wzunjh.top/about/" style="color: #3a8ee6">《用户须知》</a></div>
 </div>
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <script src="../../backend/plugins/vue/vue.js"></script>
@@ -74,7 +74,7 @@
                     this.msgFlag = false
                     sendMsgApi({phone:this.form.phone})
                     this.sendAuthCode = false;
-                    this.auth_time = 30;
+                    this.auth_time = 60;
                     let auth_times = setInterval(() => {
                         this.auth_time--;
                         if (this.auth_time <= 0) {
