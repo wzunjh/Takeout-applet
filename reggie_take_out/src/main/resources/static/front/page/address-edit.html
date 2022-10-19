@@ -121,7 +121,7 @@
                             this.$notify({ type:'warning', message:'请输入收货地址'});
                             return 
                         }
-                        const reg = /^1[3|4|5|7|8][0-9]{9}$/
+                        const reg = /^1[3|6|5|7|8|9][0-9]{9}$/
                         if(!reg.test(form.phone)){
                             this.$notify({ type:'warning', message:'手机号码不合法'});
                             return  
