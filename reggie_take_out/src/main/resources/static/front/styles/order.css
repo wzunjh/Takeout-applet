@@ -4,9 +4,9 @@
 
 #order .divHead {
   width: 100%;
-  height: 88rem;
+  height: 65rem;
   opacity: 1;
-  background: #333333;
+  background: #e9e5e5;
   position: relative;
 }
 
@@ -15,7 +15,7 @@
   font-family: PingFangSC, PingFangSC-Regular;
   font-weight: 500;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
   line-height: 25rem;
   letter-spacing: 0;
   position: absolute;
@@ -114,7 +114,7 @@
   width: 124rem;
   height: 36rem;
   opacity: 1;
-  border: 1px solid #e5e4e4;
+  border: 1px solid #f6aa06;
   border-radius: 19rem;
   opacity: 1;
   font-size: 14rem;
