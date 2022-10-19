@@ -14,10 +14,10 @@
 
 #main .divHead img {
   position: absolute;
-  left: 19rem;
-  top: 41rem;
-  width: 28rem;
-  height: 28rem;
+  left: 320rem;
+  top: 20rem;
+  width: 40rem;
+  height: 40rem;
 }
 
 #main .divTitle {
@@ -249,7 +249,7 @@
   background: #ffc200;
   border-radius: 12rem;
   font-size: 12rem;
-  font-family: PingFangSC, PingFangSC-Regular;
+  font-family: PingFangSC, PingFangSC-Regular, serif;
   font-weight: 500;
   text-align: center;
   color: #333333;
@@ -263,14 +263,14 @@
 }
 
 #main .divCart {
-  width: 345rem;
-  height: 30rem;
+  width: 365rem;
+  height: 50rem;
   opacity: 1;
   background: #000000;
-  border-radius: 25rem;
+  border-radius: 60rem;
   box-shadow: 0 3rem 5rem 0 rgba(0, 0, 0, 0.25);
   margin: 0 auto;
-  bottom: 24rem;
+  bottom: 6rem;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
@@ -311,18 +311,18 @@
 }
 
 #main .divCart > div:last-child {
-  width: 102rem;
-  height: 36rem;
+  width: 110rem;
+  height: 50rem;
   opacity: 1;
-  border-radius: 18rem;
-  font-size: 15rem;
-  font-family: PingFangSC, PingFangSC-Regular;
-  font-weight: 500;
+  border-radius: 250rem;
+  font-size: 16rem;
+  font-family: PingFangSC, PingFangSC-Regular, serif;
+  font-weight: 800;
   text-align: center;
-  line-height: 36rem;
+  line-height: 50rem;
   position: absolute;
-  right: 5rem;
-  top: 4rem;
+  right: -1rem;
+  top: 0;
 }
 
 #main .divCart .btnSubmit {
