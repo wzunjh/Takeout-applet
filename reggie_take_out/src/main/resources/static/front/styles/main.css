@@ -264,11 +264,11 @@
 
 #main .divCart {
   width: 345rem;
-  height: 44rem;
+  height: 30rem;
   opacity: 1;
   background: #000000;
   border-radius: 25rem;
-  box-shadow: 0rem 3rem 5rem 0rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3rem 5rem 0 rgba(0, 0, 0, 0.25);
   margin: 0 auto;
   bottom: 24rem;
   position: fixed;
