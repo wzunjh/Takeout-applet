@@ -46,11 +46,11 @@
   top: 20rem;
   cursor: pointer;
   opacity: 1;
-  font-size: 14rem;
+  font-size: 15rem;
   font-family: PingFangSC, PingFangSC-Regular, serif;
   font-weight: 800;
   text-align: left;
-  color: #ffc200;
+  color: #06bdf5;
   letter-spacing: 0;
 }
 
@@ -74,7 +74,6 @@
   margin: 20rem 10rem 0 10rem;
   border-radius: 20px;
   border: 0;
-
   font-size: 15rem;
   font-family: PingFangSC, PingFangSC-Regular, serif;
   font-weight: 500;
@@ -91,11 +90,11 @@
 }
 
 #login .btnPhone {
-  background: #36c958;
+  background: #06bdf5;
   color: #ffffff;
 }
 
 #login .btnPhone:active {
-  background: rgb(56, 114, 55);
+  background: rgb(12, 138, 178);
   color: #ffffff;
 }
