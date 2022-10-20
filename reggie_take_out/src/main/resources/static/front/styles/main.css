@@ -21,11 +21,11 @@
 }
 
 #main .divTitle {
-  width: 345rem;
-  height: 118rem;
+  width: 375rem;
+  height: 115rem;
   opacity: 1;
   background: #ffffff;
-  border-radius: 6rem;
+  border-radius: 16rem;
   box-shadow: 0rem 2rem 5rem 0rem rgba(69, 69, 69, 0.1);
   position: absolute;
   left: 50%;
