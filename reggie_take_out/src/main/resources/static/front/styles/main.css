@@ -22,14 +22,14 @@
 
 #main .divTitle {
   width: 375rem;
-  height: 115rem;
+  height: 135rem;
   opacity: 1;
   background: #ffffff;
   border-radius: 16rem;
   box-shadow: 0rem 2rem 5rem 0rem rgba(69, 69, 69, 0.1);
   position: absolute;
   left: 50%;
-  top: 77rem;
+  top: 67rem;
   transform: translate(-50%, 0);
   box-sizing: border-box;
   padding: 14rem 0 0 8rem;
@@ -85,15 +85,14 @@
 
 #main .divTitle > .divDesc {
   opacity: 1;
-  font-size: 12rem;
+  font-size: 10rem;
   font-family: PingFangSC, PingFangSC-Regular;
   font-weight: 400;
-  text-align: left;
+  text-align: center;
   color: #9b9b9b;
   line-height: 17rem;
   margin-right: 18rem;
-  padding-top: 9rem;
-  border-top: 1rem dashed #ebebeb;
+  padding-top: 7rem;
 }
 
 #main .divBody {

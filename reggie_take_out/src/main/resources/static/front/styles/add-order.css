@@ -1,8 +1,8 @@
 #add_order .divHead {
   width: 100%;
-  height: 88rem;
+  height: 76rem;
   opacity: 1;
-  background: #333333;
+  background: #fab301;
   position: relative;
 }
 
@@ -94,7 +94,7 @@
   font-family: PingFangSC, PingFangSC-Regular;
   font-weight: 400;
   text-align: left;
-  color: #333333;
+  color: #ff9000;
   line-height: 47rem;
   margin-left: 2rem;
 }
