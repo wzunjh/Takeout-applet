@@ -7,10 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.njh.common.BaseContext;
 import com.njh.common.CustomException;
 import com.njh.common.R;
-import com.njh.dao.AddressBookMapper;
-import com.njh.dao.OrderDetailMapper;
-import com.njh.dao.OrderMapper;
-import com.njh.dao.UserMapper;
+import com.njh.dao.*;
 import com.njh.domain.*;
 import com.njh.dto.OrdersDto;
 import com.njh.service.*;
@@ -40,6 +37,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
     private UserService userService;
 
     @Autowired
+    private DishService dishService;
+
+    @Autowired
     private AddressBookService addressBookService;
 
     @Autowired
@@ -47,8 +47,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
 
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private AddressBookMapper addressBookMapper;
+
     @Autowired
     private OrderMapper orderMapper;
     @Autowired
@@ -89,6 +88,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
 
         List<OrderDetail> orderDetails = shoppingCarts.stream().map((item) -> {
             OrderDetail orderDetail = new OrderDetail();
+            //月销量功能
+            LambdaQueryWrapper<Dish> wrapper1 = new LambdaQueryWrapper<>();
+            wrapper1.eq(Dish::getId,item.getDishId());
+            Dish dish = dishService.getOne(wrapper1);
+            Integer number = dish.getSaleNum();
+            dish.setSaleNum(number+item.getNumber());
+            dishService.updateById(dish);
             orderDetail.setOrderId(orderId);
             orderDetail.setNumber(item.getNumber());
             orderDetail.setDishFlavor(item.getDishFlavor());
