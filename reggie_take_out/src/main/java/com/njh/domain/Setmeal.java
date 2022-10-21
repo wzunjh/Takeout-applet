@@ -47,6 +47,9 @@ public class Setmeal implements Serializable {
     //图片
     private String image;
 
+    //月销量
+    private Integer saleNum;
+
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

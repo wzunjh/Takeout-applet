@@ -40,6 +40,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
     private DishService dishService;
 
     @Autowired
+    private SetmealService setmealService;
+
+    @Autowired
     private AddressBookService addressBookService;
 
     @Autowired
@@ -88,13 +91,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
 
         List<OrderDetail> orderDetails = shoppingCarts.stream().map((item) -> {
             OrderDetail orderDetail = new OrderDetail();
-            //月销量功能
-            LambdaQueryWrapper<Dish> wrapper1 = new LambdaQueryWrapper<>();
-            wrapper1.eq(Dish::getId,item.getDishId());
-            Dish dish = dishService.getOne(wrapper1);
-            Integer number = dish.getSaleNum();
-            dish.setSaleNum(number+item.getNumber());
-            dishService.updateById(dish);
             orderDetail.setOrderId(orderId);
             orderDetail.setNumber(item.getNumber());
             orderDetail.setDishFlavor(item.getDishFlavor());
@@ -103,6 +99,23 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
             orderDetail.setName(item.getName());
             orderDetail.setImage(item.getImage());
             orderDetail.setAmount(item.getAmount());
+            //月销量功能(套餐和菜品)
+            LambdaQueryWrapper<Dish> wrapper1 = new LambdaQueryWrapper<>();
+            LambdaQueryWrapper<Setmeal> wrapper2 = new LambdaQueryWrapper<>();
+            wrapper1.eq(Dish::getId,item.getDishId());
+            wrapper2.eq(Setmeal::getId,item.getSetmealId());
+            Dish dish = dishService.getOne(wrapper1);
+            Setmeal setmeal = setmealService.getOne(wrapper2);
+            if(dish != null){
+                Integer number1 = dish.getSaleNum();
+                dish.setSaleNum(number1+item.getNumber());
+                dishService.updateById(dish);
+            }else {
+                Integer number2 = setmeal.getSaleNum();
+                setmeal.setSaleNum(number2+item.getNumber());
+                setmealService.updateById(setmeal);
+            }
+
             amount.addAndGet(item.getAmount().multiply(new BigDecimal(item.getNumber())).intValue());   //计算金额
             return orderDetail;
         }).collect(Collectors.toList());
