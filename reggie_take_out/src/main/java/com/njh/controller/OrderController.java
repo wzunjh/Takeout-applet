@@ -81,7 +81,7 @@ public class OrderController {
         //获取该订单对应的所有的订单明细表
         List<OrderDetail> orderDetailList = orderDetailService.list(queryWrapper);
 
-        //通过用户id把原来的购物车给清空，这里的clean方法是视频中讲过的,建议抽取到service中,那么这里就可以直接调用了
+        //通过用户id把原来的购物车给清空，抽取到service中,那么这里就可以直接调用了
         Long userId = BaseContext.getCurrentId();
         LambdaQueryWrapper<ShoppingCart> queryWrapper1 = new LambdaQueryWrapper<>();
         queryWrapper1.eq(ShoppingCart::getUserId,userId);
