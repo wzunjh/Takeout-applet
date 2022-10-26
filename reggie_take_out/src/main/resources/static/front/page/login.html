@@ -24,9 +24,9 @@
     <div style="font-size:22px;font-weight:bold;color: #0eb8e8">&nbsp&nbsp&nbsp&nbsp欢迎使用</div>
     <div style="font-size:12px;padding-top: 14px;font-weight:bold;color: rgba(176,176,180,0.94)">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp未注册的邮箱验证通过后将自动注册</div>
     <div class="divContainer">
-        <el-input placeholder=" 请输入邮箱" v-model="form.phone"  maxlength='20'/></el-input>
+        <el-input placeholder=" 请输入邮箱" v-model="form.phone"  maxlength='30'/></el-input>
         <div class="divSplit"></div>
-        <el-input placeholder=" 请输入验证码" v-model="form.code"  maxlength='20'/></el-input>
+        <el-input placeholder=" 请输入验证码" v-model="form.code"  maxlength='6'/></el-input>
         <span v-show="sendAuthCode" class="auth_text auth_text_blue" @click='getCode'>获取验证码</span>
         <span v-show="!sendAuthCode" class="auth_text" style="color: #bdbdbd">{{auth_time}}秒后重试</span>
     </div>
