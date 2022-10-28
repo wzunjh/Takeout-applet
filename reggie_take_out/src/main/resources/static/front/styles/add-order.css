@@ -90,9 +90,9 @@
 #add_order .divContent .divAddress .divFinishTime {
   height: 47rem;
   opacity: 1;
-  font-size: 12rem;
+  font-size: 13rem;
   font-family: PingFangSC, PingFangSC-Regular;
-  font-weight: 400;
+  font-weight: 500;
   text-align: left;
   color: #ff9000;
   line-height: 47rem;
