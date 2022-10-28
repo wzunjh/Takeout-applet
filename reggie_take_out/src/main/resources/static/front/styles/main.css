@@ -262,14 +262,14 @@
 }
 
 #main .divCart {
-  width: 365rem;
+  width: 352rem;
   height: 50rem;
   opacity: 1;
   background: #000000;
   border-radius: 60rem;
   box-shadow: 0 3rem 5rem 0 rgba(0, 0, 0, 0.25);
   margin: 0 auto;
-  bottom: 16rem;
+  bottom: 14rem;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
