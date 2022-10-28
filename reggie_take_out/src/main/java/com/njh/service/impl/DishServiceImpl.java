@@ -155,7 +155,7 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
         }
 
         //数据存入缓存
-        redisTemplate.opsForValue().set(key,dishDtoList,60, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(key,dishDtoList,30, TimeUnit.DAYS);
 
 
         return R.success(dishDtoList);
