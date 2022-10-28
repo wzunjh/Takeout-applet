@@ -58,7 +58,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2rem dashed #efefef;
-  border-top: 2px solid #f5e0b3;
+  border-top: 2px solid #000000;
 }
 
 #order .divBody .item .timeStatus span:first-child {
