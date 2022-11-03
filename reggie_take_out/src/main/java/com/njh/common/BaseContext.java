@@ -2,7 +2,7 @@ package com.njh.common;
 
 public class BaseContext {
 
-    //多线程访问同一个共享变量为了防止高并发，采用加锁同步方式
+    //封装一个用户访问令牌
 
     private static ThreadLocal<Long> threadLocal =new ThreadLocal<>();
 

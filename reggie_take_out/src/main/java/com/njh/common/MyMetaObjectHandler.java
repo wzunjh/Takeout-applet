@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 
-//公共字段自动填充
+//数据库公共字段自动填充
 
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
