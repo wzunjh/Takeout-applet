@@ -43,7 +43,7 @@ public class UserController {
 
         // 发送邮箱验证码
         @PostMapping("/sendMsg") // sendMsg
-        public R<String> sendMsg(@RequestBody User user, HttpSession session) {
+        public R<String> sendMsg(@RequestBody User user) {
             //  获取邮箱账号
             String phone = user.getPhone();
 
