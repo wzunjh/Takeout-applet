@@ -7,11 +7,9 @@
 说明:后端利用mysql，redis，mybatisplus，sping-cache，springMVC，springboot等技术和框架搭建的外卖服务平台
 ![输入图片说明](reggie_take_out/src/main/resources/gost.png)
 #### 部分功能截图
-![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175114_com.tencent.mm.jpg)
-![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175152_com.tencent.mm.jpg)
-![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175214_com.tencent.mm.jpg)
-![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175252_com.tencent.mm.jpg)
-![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175323_com.tencent.mm.jpg)
+|![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175114_com.tencent.mm.jpg)   | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175152_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175214_com.tencent.mm.jpg)  |
+|---|---|---|
+| ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175252_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175323_com.tencent.mm.jpg)  |   |
 
 #### 参与贡献
 
