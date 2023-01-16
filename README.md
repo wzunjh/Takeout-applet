@@ -9,7 +9,7 @@
 #### 部分功能截图
 |![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175114_com.tencent.mm.jpg)   | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175152_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175214_com.tencent.mm.jpg)  |
 |---|---|---|
-| ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175252_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175323_com.tencent.mm.jpg)  |   |
+| ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175252_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175323_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/6O)MOE8%7B4%7BS%25MJX(K4G72TD.png)  |
 
 #### 参与贡献
 
@@ -20,8 +20,11 @@
 
 #### 使用说明
 1.修改配置文件application.properties，数据库的连接等。
+
 2.本地或者服务器启动时，提前开启redis服务
+
 3.CommonController修改文件上传和下载的路径
+
 4.同时访问后台管理系统和前台小程序时请使用两个浏览器分别访问（或者操作完一个系统退出再进行另外一个系统操作），否则会导致session冲突
 
 #### 在线测试使用
