@@ -11,6 +11,10 @@
 |---|---|---|
 | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175252_com.tencent.mm.jpg)  | ![输入图片说明](reggie_take_out/src/main/resources/Screenshot_20230116_175323_com.tencent.mm.jpg)  | |
 
+#### 后台管理端
+| ![输入图片说明](reggie_take_out/src/main/resources/6O)MOE8%7B4%7BS%25MJX(K4G72TD.png) |
+|--|
+
 #### 参与贡献
 
 1.  前端：传智播客
