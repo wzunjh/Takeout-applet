@@ -23,7 +23,7 @@
 4.  后端：wzunjh
 
 #### 使用说明
-1.修改配置文件application.properties，数据库的连接等。
+1.修改配置文件application.properties，运行目录中的sql文件，测试连接数据库。
 
 2.本地或者服务器启动时，提前开启redis服务
 
