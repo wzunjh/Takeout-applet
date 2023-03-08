@@ -1,10 +1,7 @@
 package com.njh.filter;
 
-import com.alibaba.fastjson.JSON;
 import com.njh.common.BaseContext;
-import com.njh.common.R;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.*;
@@ -38,7 +35,6 @@ public class LoginCheckFilter implements Filter {
         String[] urls =new String[]{
                 "/employee/login",
                 "/employee/logout",
-                "/backend/**",
                 "/front/**",
                 "/common/**",
                 "/user/sendMsg",
@@ -74,9 +70,7 @@ public class LoginCheckFilter implements Filter {
             return;
         }
 
-        response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
-        return;
-
+        response.sendRedirect(request.getContextPath() + "/front/page/login.html");  //跳转到登录界面
 
     }
 

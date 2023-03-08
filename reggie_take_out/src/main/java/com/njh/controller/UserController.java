@@ -50,7 +50,7 @@ public class UserController {
             String subject = "智慧云外卖小程序";
             if (StringUtils.isNotEmpty(phone)) {
                 String code = ValidateCodeUtils.generateValidateCode(6).toString();
-                String context = "【智慧云外卖小程序】 您的登录验证码为: " + code + "(五分钟内有效)，请勿泄露给他人。如非本人操作，请忽略此信息。  【wzunjh.top】";
+                String context = "【智慧云外卖小程序】 您的登录验证码为: " + code + "(五分钟内有效)，请勿泄露给他人。如非本人操作，请忽略此信息。  【wzunjh.top 开源项目测试平台】";
 
 //                //保存验证码
 //                session.setAttribute(phone,code);
