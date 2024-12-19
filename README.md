@@ -32,4 +32,4 @@
 4.同时访问后台管理系统和前台小程序时请使用两个浏览器分别访问（或者操作完一个系统退出再进行另外一个系统操作），否则会导致session冲突
 
 #### 在线测试使用
-网站: [wzunjh.top](http://wzunjh.top)
+网站: [wzunjh.top](http://www.9fai.com)
